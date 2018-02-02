@@ -25,7 +25,6 @@ exports.apiCalled = function(apiName, path, method, query, params, body) {
 
   producer.send([{topic: 'api-call', messages: JSON.stringify({api: apiName, path: path, method: method, time: time, body: body, params: params, query: query})}], function(err, data) {
 
-    if (data != null) console.log(data);
     if (err != null) console.log(err);
   });
 
